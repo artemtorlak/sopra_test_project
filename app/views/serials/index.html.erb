@@ -1,0 +1,40 @@
+<center>
+  <h1>Serials</h1>
+
+  <p> Search all serials for particular actor </p>
+  <h2>
+    <%= form_tag(serials_path, method: :get) do %>
+      <%= text_field_tag(:search, params[:search]) %>
+      <%= submit_tag ("Search") %>
+    <% end %>
+  </h2>
+
+  <table>
+      <thead>
+        <tr>
+          <th scope="row">Title</th>
+          <th scope="row">Genre</th>
+          <th scope="row">Number of Seasons</th>
+          <th scope="row">First Release Date</th>
+          <th scope="row">Director</th>
+          <th scope="row">Country</th>
+          <th scope="row">Average Rating</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @serials.each do |serial| %>
+          <tr>
+            <td> <%= serial.name %> </td>
+            <td> <%= serial.genre %> </td>
+            <td> <%= serial.number_of_seasons %> </td>
+            <td> <%= serial.date_of_first_release %> </td>
+            <td> <%= serial.director %> </td>
+            <td> <%= serial.country %> </td>
+            <td> <%= serial_average_rating(serial) %> </td>
+          </tr>
+        <% end %>
+      </tbody>
+  </table>
+</center>
+
