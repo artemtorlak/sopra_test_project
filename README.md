@@ -5,7 +5,7 @@
 ### 1. Requirements
 Install Ruby 3.0, Rails 7, PostgreSQL 13.
 
-### 2. You need to create a development database.
+### 2. Create a development database.
 
 There are standart basic credentials for database in .env file
 
@@ -45,3 +45,4 @@ To run them
 #### REVIEWS_DATA_FILE='./tv_series.csv' rake populate_data:reviews
 
 SERIALS_DATA_FILE and REVIEWS_DATA_FILE - are ENV variables
+
