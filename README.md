@@ -1,24 +1,34 @@
-# README
+* This is simple test application and the main idea is to parse csv files, insert data into database and show general data in main page with ability to search.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* How to start the project:
 
-Things you may want to cover:
+1. Install Ruby 3.0, Rails 7, PostgreSQL 13.
+Please, find all necessary information in the internet how to install this.
 
-* Ruby version
+2. You need to create a development database.
 
-* System dependencies
+There are standart basic credentials for database in .env file
 
-* Configuration
+POSTGRES_USER=postgres_user
+POSTGRES_PASSWORD=postgres_user
+POSTGRES_HOST=localhost
 
-* Database creation
+You can change this credentials and user your own. If you change these credentials, then, you need to use your own in the point 3.
 
-* Database initialization
+3. To create database user and database run: 
 
-* How to run the test suite
+sudo -u postgres createuser -s postgres_user                                                                                                                         sudo -u postgres createdb serials_storage_development
+sudo -u postgres createdb serials_storage_test
+sudo -u postgres psql
+**(In psql) alter postgres_user with password 'postgres_user';
+**(In psql) grant all privileges on database serials_storage_development to postgres_user ;
 
-* Services (job queues, cache servers, search engines, etc.)
+After that the database should be prepared.
+You can test this, just run command 'rails c'
 
-* Deployment instructions
+4. How to parse files and fill database with data:
 
-* ...
+There are 2 rake tasks to fill serials data and reviews data.
+To run them
+SERIALS_DATA_FILE='./tv_series.csv' rake populate_data:reviews 
+REVIEWS_DATA_FILE='./tv_series.csv' rake populate_data:reviews 
