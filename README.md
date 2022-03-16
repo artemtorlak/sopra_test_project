@@ -46,3 +46,10 @@ To run them
 
 SERIALS_DATA_FILE and REVIEWS_DATA_FILE - are ENV variables
 
+### 5. Launch the app
+
+Run these commands
+
+#### bundle install
+
+#### rails s
